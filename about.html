@@ -6,61 +6,105 @@
     <title>About - My Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-green: #1B5B31;
+            --background-cream: #FDF9F3;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            background-color: var(--background-cream);
+            color: var(--primary-green);
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+        
         nav {
-            background-color: #333;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            background-color: var(--background-cream);
+            border-bottom: 1px solid rgba(27, 91, 49, 0.1);
         }
+        
         nav a {
-            color: white;
+            color: var(--primary-green);
             text-decoration: none;
             padding: 0.5rem 1rem;
-            margin-right: 10px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+            font-size: 1rem;
+            transition: opacity 0.3s;
         }
+        
         nav a:hover {
-            background-color: #555;
+            opacity: 0.7;
         }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
+        
         .content {
-            padding: 20px;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: 3.5rem;
+            color: var(--primary-green);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .feature-section {
+            border-bottom: 1px solid rgba(27, 91, 49, 0.1);
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .feature-section h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: 2.5rem;
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div style="font-family: 'Fraunces', serif; font-size: 1.5rem;">LOGO</div>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="content">
+        <h1>About Us</h1>
+        <p>We are dedicated to providing natural solutions that support your body's natural processes. Our approach combines scientific research with natural ingredients to help you achieve optimal health.</p>
         
-        <div class="content">
-            <h1>About Us</h1>
-            <p>Learn more about our company and our mission. We are dedicated to providing the best service to our customers.</p>
+        <div class="feature-section">
+            <h2>Our Mission</h2>
+        </div>
+        
+        <div class="feature-section">
+            <h2>Our Approach</h2>
+        </div>
+        
+        <div class="feature-section">
+            <h2>Our Promise</h2>
         </div>
     </div>
 </body>
