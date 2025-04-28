@@ -33,4 +33,4 @@ jobs:
         with:
           branch: gh-pages
           folder: my-polaris-app/dist
-          target-folder: prototype1 
+          target-folder: polaris-prototype 
