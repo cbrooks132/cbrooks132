@@ -27,22 +27,8 @@ jobs:
           npm install
           npm run build
 
-      # Prepare deployment
-      - name: Prepare deployment
-        run: |
-          # Create deployment directory
-          mkdir -p ./deploy/cbrooks-shopify
-          # Copy static files to root
-          cp index.html ./deploy/cbrooks-shopify/
-          cp about.html ./deploy/cbrooks-shopify/
-          cp services.html ./deploy/cbrooks-shopify/
-          cp contact.html ./deploy/cbrooks-shopify/
-          # Copy React build
-          mkdir -p ./deploy/cbrooks-shopify/polaris-prototype
-          cp -r my-polaris-app/dist/* ./deploy/cbrooks-shopify/polaris-prototype/
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy 
+          publish_dir: ./my-polaris-app/dist 
