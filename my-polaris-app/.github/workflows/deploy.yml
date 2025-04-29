@@ -1,18 +1,18 @@
-name: Deploy Prototype 1
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
 
@@ -25,12 +25,9 @@ jobs:
         run: |
           cd my-polaris-app
           npm run build
-        env:
-          CI: false
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: my-polaris-app/dist
-          target-folder: polaris-prototype 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./my-polaris-app/dist 

@@ -10,19 +10,17 @@ import {
   ButtonGroup,
   Button,
   Tabs,
-  LegacyCard,
-  Icon
+  LegacyCard
 } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import { useState, useCallback } from "react";
 import enTranslations from '@shopify/polaris/locales/en.json';
 
 function App() {
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [selected, setSelected] = useState(0);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const [isSecondaryMenuOpen, setIsSecondaryMenuOpen] = useState(false);
 
   const handleSearchChange = useCallback((value: string) => {
     setSearchValue(value);
@@ -37,22 +35,6 @@ function App() {
   const toggleIsUserMenuOpen = useCallback(
     () => setIsUserMenuOpen((isUserMenuOpen) => !isUserMenuOpen),
     [],
-  );
-
-  const toggleIsSecondaryMenuOpen = useCallback(
-    () => setIsSecondaryMenuOpen((isSecondaryMenuOpen) => !isSecondaryMenuOpen),
-    [],
-  );
-
-  const searchFieldMarkup = (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%', width: '480px' }}>
-      <TopBar.SearchField
-        onChange={handleSearchChange}
-        value={searchValue}
-        placeholder="Search"
-        showFocusBorder
-      />
-    </div>
   );
 
   const userMenuMarkup = (
@@ -94,6 +76,17 @@ function App() {
         borderRadius: '4px',
         cursor: 'pointer'
       }} />
+    </div>
+  );
+
+  const searchFieldMarkup = (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%', width: '480px' }}>
+      <TopBar.SearchField
+        onChange={handleSearchChange}
+        value={searchValue}
+        placeholder="Search"
+        showFocusBorder
+      />
     </div>
   );
 
