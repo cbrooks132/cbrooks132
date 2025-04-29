@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Build React app
+      - name: Build React App
+        working-directory: my-polaris-app
+        run: |
+          npm install
+          npm run build
+
+      # Prepare deployment
+      - name: Prepare deployment
+        run: |
+          # Create deployment directory
+          mkdir -p ./deploy
+          # Copy static files
+          cp index.html ./deploy/
+          cp about.html ./deploy/
+          cp services.html ./deploy/
+          cp contact.html ./deploy/
+          # Copy React build
+          mkdir -p ./deploy/polaris-prototype
+          cp -r my-polaris-app/dist/* ./deploy/polaris-prototype/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy 
