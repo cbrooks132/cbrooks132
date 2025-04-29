@@ -29,7 +29,7 @@ jobs:
           node-version: '18'
 
       - name: Build React App
-        working-directory: my-polaris-app
+        working-directory: polaris-prototype
         run: |
           npm install
           npm run build
@@ -37,10 +37,20 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Copy static files
+        run: |
+          mkdir -p dist
+          cp index.html dist/
+          cp about.html dist/
+          cp contact.html dist/
+          cp services.html dist/
+          cp prototype.html dist/
+          cp -r polaris-prototype/dist/* dist/polaris-prototype/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './my-polaris-app/dist'
+          path: './dist'
 
   deploy:
     needs: build
