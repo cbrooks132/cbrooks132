@@ -66,3 +66,101 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Remove space between tabs and table */
+.Polaris-Tabs {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.Polaris-Tabs__TabContainer {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.Polaris-LegacyCard__Section {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Make table stretch full width */
+.Polaris-IndexTable {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.Polaris-IndexTable-ScrollContainer {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Polaris-IndexTable__Table {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Target the space between tabs and table content */
+.Polaris-Tabs + .Polaris-LegacyCard__Section,
+.Polaris-Tabs + div > .fullWidthTableWrapper {
+  margin-top: -1px !important;
+  padding-top: 0 !important;
+}
+
+/* Make the page content stretch full width */
+.Polaris-Page {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.Polaris-Page--fullWidth {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.Polaris-Frame__Main {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Vertically center the search input */
+.Polaris-TopBar {
+  display: flex;
+  align-items: center;
+}
+
+.Polaris-TopBar__SearchField {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+}
+
+/* Search field styling */
+.Polaris-TopBar-SearchField__Input {
+  background-color: rgba(0, 0, 0, 0.24) !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  position: relative !important;
+  background-image: linear-gradient(rgba(33, 33, 33, 0.9), rgba(33, 33, 33, 0.9)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+}
+
+.Polaris-TopBar-SearchField__Input:focus {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.Polaris-TopBar-SearchField__Input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Ensure search field container is properly sized */
+.Polaris-TopBar-SearchField {
+  width: 100% !important;
+  max-width: none !important;
+}

@@ -10,7 +10,8 @@ import {
   ButtonGroup,
   Button,
   Tabs,
-  LegacyCard
+  LegacyCard,
+  Icon
 } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import { useState, useCallback } from "react";
@@ -20,6 +21,8 @@ function App() {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [selected, setSelected] = useState(0);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isSecondaryMenuOpen, setIsSecondaryMenuOpen] = useState(false);
 
   const handleSearchChange = useCallback((value: string) => {
     setSearchValue(value);
@@ -31,8 +34,18 @@ function App() {
     setSearchValue('');
   }, []);
 
+  const toggleIsUserMenuOpen = useCallback(
+    () => setIsUserMenuOpen((isUserMenuOpen) => !isUserMenuOpen),
+    [],
+  );
+
+  const toggleIsSecondaryMenuOpen = useCallback(
+    () => setIsSecondaryMenuOpen((isSecondaryMenuOpen) => !isSecondaryMenuOpen),
+    [],
+  );
+
   const searchFieldMarkup = (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%', width: '480px' }}>
       <TopBar.SearchField
         onChange={handleSearchChange}
         value={searchValue}
@@ -42,8 +55,53 @@ function App() {
     </div>
   );
 
+  const userMenuMarkup = (
+    <TopBar.UserMenu
+      actions={[
+        {
+          items: [{content: 'Back to Shopify'}],
+        },
+        {
+          items: [{content: 'Community forums'}],
+        },
+      ]}
+      name="Stellar Interiors"
+      initials="SI"
+      open={isUserMenuOpen}
+      onToggle={toggleIsUserMenuOpen}
+    />
+  );
+
+  const secondaryMenuMarkup = (
+    <div style={{ 
+      display: 'flex', 
+      gap: '12px', 
+      alignItems: 'center', 
+      marginRight: '12px',
+      height: '100%' 
+    }}>
+      <div style={{
+        width: '24px',
+        height: '24px',
+        backgroundColor: '#303030',
+        borderRadius: '4px',
+        cursor: 'pointer'
+      }} />
+      <div style={{
+        width: '24px',
+        height: '24px',
+        backgroundColor: '#303030',
+        borderRadius: '4px',
+        cursor: 'pointer'
+      }} />
+    </div>
+  );
+
   const topBarMarkup = (
     <TopBar
+      showNavigationToggle
+      userMenu={userMenuMarkup}
+      secondaryMenu={secondaryMenuMarkup}
       searchField={searchFieldMarkup}
       searchResultsVisible={isSearchActive}
       onSearchResultsDismiss={handleSearchResultsDismiss}
@@ -56,7 +114,7 @@ function App() {
         items={[
           {
             label: 'Home',
-            selected: true,
+            selected: false,
           },
           {
             label: 'Orders',
@@ -64,6 +122,7 @@ function App() {
           },
           {
             label: 'Products',
+            selected: true,
           },
           {
             label: 'Collections',
@@ -188,6 +247,7 @@ function App() {
       >
         <Page
           title="Inventory: New York City"
+          fullWidth
           primaryAction={
             <ButtonGroup>
               <Button>Stock counts</Button>

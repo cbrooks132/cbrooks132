@@ -1,0 +1,97 @@
+.custom-top-nav {
+  width: 100vw;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-sizing: border-box;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+.shopify-text {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-left: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.search-bar {
+  background: #232323;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 40px;
+  min-width: 400px;
+  max-width: 600px;
+  width: 100%;
+}
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  flex: 1;
+  outline: none;
+  margin-left: 8px;
+}
+.search-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+.shortcut {
+  background: #232323;
+  border-radius: 6px;
+  color: #aaa;
+  font-size: 0.9rem;
+  padding: 2px 8px;
+  margin-left: 8px;
+  border: 1px solid #333;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  background: none;
+  border-radius: 16px;
+  padding: 0 8px;
+  gap: 8px;
+}
+.profile-initials {
+  background: #ff5ca7;
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.profile-name {
+  font-size: 1rem;
+  font-weight: 500;
+} 
