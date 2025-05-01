@@ -179,6 +179,8 @@ function App() {
       available: '20',
       onHand: '40',
       incoming: '10',
+      thumbnail: '🎾',
+      color: '#F4D03F'
     },
     {
       id: '2',
@@ -189,6 +191,8 @@ function App() {
       available: '25',
       onHand: '45',
       incoming: '5',
+      thumbnail: '🎾',
+      color: '#F4D03F'
     },
     {
       id: '3',
@@ -199,7 +203,45 @@ function App() {
       available: '20',
       onHand: '50',
       incoming: '0',
+      thumbnail: '🎾',
+      color: '#F4D03F'
     },
+    {
+      id: '4',
+      product: 'Tennis Racket Aqua / S',
+      sku: '48052830987',
+      unavailable: '0',
+      committed: '20',
+      available: '30',
+      onHand: '50',
+      incoming: '0',
+      thumbnail: '🎾',
+      color: '#48C9B0'
+    },
+    {
+      id: '5',
+      product: 'Tennis Racket Aqua / M',
+      sku: '48052830987',
+      unavailable: '0',
+      committed: '15',
+      available: '10',
+      onHand: '25',
+      incoming: '30',
+      thumbnail: '🎾',
+      color: '#48C9B0'
+    },
+    {
+      id: '6',
+      product: 'Tennis Racket Aqua / S',
+      sku: '48052830438',
+      unavailable: '0',
+      committed: '30',
+      available: '15',
+      onHand: '45',
+      incoming: '0',
+      thumbnail: '🎾',
+      color: '#48C9B0'
+    }
   ].map(
     ({
       id,
@@ -210,6 +252,8 @@ function App() {
       available,
       onHand,
       incoming,
+      thumbnail,
+      color
     }) => (
       <IndexTable.Row
         id={id}
@@ -218,9 +262,23 @@ function App() {
         position={Number(id)}
       >
         <IndexTable.Cell>
-          <Text variant="bodyMd" fontWeight="bold" as="span">
-            {product}
-          </Text>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              backgroundColor: color,
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '24px'
+            }}>
+              {thumbnail}
+            </div>
+            <Text variant="bodyMd" fontWeight="bold" as="span">
+              {product}
+            </Text>
+          </div>
         </IndexTable.Cell>
         <IndexTable.Cell>{sku}</IndexTable.Cell>
         <IndexTable.Cell>{unavailable}</IndexTable.Cell>

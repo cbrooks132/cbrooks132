@@ -86,32 +86,76 @@ button:focus-visible {
 /* Make table stretch full width */
 .Polaris-IndexTable {
   width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
-.Polaris-IndexTable-ScrollContainer {
-  padding: 0 !important;
+.Polaris-IndexTable__TableCell {
+  padding: 12px 16px !important;
+}
+
+/* Ensure checkboxes are perfect squares */
+.Polaris-Checkbox {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
   margin: 0 !important;
 }
 
-.Polaris-IndexTable__Table {
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+.Polaris-Checkbox__Input {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
 }
 
-/* Target the space between tabs and table content */
-.Polaris-Tabs + .Polaris-LegacyCard__Section,
-.Polaris-Tabs + div > .fullWidthTableWrapper {
-  margin-top: -1px !important;
-  padding-top: 0 !important;
+/* Basic column widths */
+.Polaris-IndexTable__TableCell:nth-child(2) {
+  width: 35% !important;  /* Product name column */
+}
+
+.Polaris-IndexTable__TableCell:nth-child(3) {
+  width: 15% !important;  /* SKU */
+}
+
+.Polaris-IndexTable__TableCell:nth-child(n+4) {
+  width: 10% !important;  /* Numeric columns */
+  text-align: right !important;
+}
+
+/* Header styling */
+.Polaris-IndexTable__TableHeading {
+  padding: 12px 16px !important;
+  font-weight: 600 !important;
+}
+
+.Polaris-IndexTable__TableHeading:nth-child(n+4) {
+  text-align: right !important;
+}
+
+/* Remove the style prop from IndexTable since it's not supported */
+.Polaris-IndexTable {
+  --pc-index-table-cell-padding: 12px 16px;
+  --pc-index-table-cell-padding-left: 16px;
+  --pc-index-table-cell-padding-right: 16px;
+}
+
+/* Ensure proper vertical alignment for all content */
+.Polaris-IndexTable__TableCell > * {
+  vertical-align: middle !important;
 }
 
 /* Make the page content stretch full width */
 .Polaris-Page {
   max-width: none !important;
   width: 100% !important;
+  padding: 0 2rem !important;
+}
+
+.Polaris-Page__Content {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .Polaris-Page--fullWidth {
@@ -122,6 +166,13 @@ button:focus-visible {
 .Polaris-Frame__Main {
   max-width: none !important;
   width: 100% !important;
+}
+
+/* Fix any potential scroll issues */
+.Polaris-Frame__Content {
+  width: 100% !important;
+  max-width: none !important;
+  overflow-x: hidden !important;
 }
 
 /* Vertically center the search input */
@@ -163,4 +214,26 @@ button:focus-visible {
 .Polaris-TopBar-SearchField {
   width: 100% !important;
   max-width: none !important;
+}
+
+/* Ensure row items are properly positioned */
+.Polaris-IndexTable__TableRow {
+  position: relative !important;
+}
+
+/* Tighten spacing between checkbox and content */
+.Polaris-IndexTable__TableCell--first {
+  padding-right: 0 !important;
+}
+
+.Polaris-IndexTable__TableCell .Polaris-Checkbox {
+  margin-right: 4px !important;
+}
+
+/* Ensure thumbnails are exactly 40x40 */
+.Polaris-IndexTable__TableCell div[style*="backgroundColor"] {
+  min-width: 40px !important;
+  max-width: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
 }
