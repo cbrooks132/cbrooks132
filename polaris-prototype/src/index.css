@@ -86,6 +86,16 @@ button:focus-visible {
 /* Make table stretch full width */
 .Polaris-IndexTable {
   width: 100% !important;
+  border-right: none !important;
+}
+
+.Polaris-IndexTable-ScrollContainer {
+  border-right: none !important;
+}
+
+.Polaris-LegacyCard {
+  border-right: none !important;
+  box-shadow: none !important;
 }
 
 .Polaris-IndexTable__TableCell {
@@ -144,11 +154,32 @@ button:focus-visible {
   vertical-align: middle !important;
 }
 
-/* Make the page content stretch full width */
+/* Center page content */
+.Polaris-Frame__Main {
+  max-width: none !important;
+  width: 100% !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.Polaris-Frame__Content {
+  max-width: none !important;
+  overflow-x: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
 .Polaris-Page {
   max-width: none !important;
   width: 100% !important;
   padding: 0 2rem !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .Polaris-Page__Content {
@@ -163,16 +194,9 @@ button:focus-visible {
   width: 100% !important;
 }
 
-.Polaris-Frame__Main {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-/* Fix any potential scroll issues */
-.Polaris-Frame__Content {
-  width: 100% !important;
-  max-width: none !important;
-  overflow-x: hidden !important;
+.Polaris-Frame {
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Vertically center the search input */
