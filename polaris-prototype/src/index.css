@@ -261,3 +261,9 @@ button:focus-visible {
   min-height: 40px !important;
   max-height: 40px !important;
 }
+
+/* Add 8px right padding to the last cell and last header cell */
+.Polaris-IndexTable__TableCell:last-child,
+.Polaris-IndexTable__TableHeading:last-child {
+  padding-right: 28px !important; /* 16px existing + 12px extra */
+}
